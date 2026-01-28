@@ -27,7 +27,20 @@ const matchCredentialsWithDcqlQuery = (credentials: UniqueDigitalCredential[], d
     credentials.map((vc) => [convertToDcqlCredentials(vc), vc])
   )
 
+  // DEBUG: Log DCQL query and converted credentials
+  console.log('=== DCQL UI MATCHING DEBUG START ===');
+  console.log('DCQL Query:', JSON.stringify(dcqlQuery, null, 2));
+  console.log('Number of credentials:', credentials.length);
+  Array.from(dcqlCredentialsWithCredentials.keys()).forEach((dcqlCred, index) => {
+    console.log(`Credential ${index} DCQL format:`, JSON.stringify(dcqlCred, null, 2));
+  });
+
   const queryResult = DcqlQuery.query(dcqlQuery, Array.from(dcqlCredentialsWithCredentials.keys()))
+
+  // DEBUG: Log query result
+  console.log('Query can_be_satisfied:', queryResult.can_be_satisfied);
+  console.log('credential_matches:', JSON.stringify(queryResult.credential_matches, null, 2));
+  console.log('=== DCQL UI MATCHING DEBUG END ===')
 
   const selectableCredentialsMap = new Map()
 /**

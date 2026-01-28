@@ -252,7 +252,22 @@ export const sendResponse = async (
 
   const dcqlCredentialsWithCredentials = new Map(credentials.map((vc) => [convertToDcqlCredentials(vc), vc]));
 
+  // DEBUG: Log DCQL credentials and query for troubleshooting
+  console.log('=== DCQL DEBUG START ===');
+  console.log('DCQL Query:', JSON.stringify(request.dcqlQuery, null, 2));
+  console.log('Number of credentials:', credentials.length);
+  Array.from(dcqlCredentialsWithCredentials.keys()).forEach((dcqlCred, index) => {
+    console.log(`Credential ${index} DCQL format:`, JSON.stringify(dcqlCred, null, 2));
+  });
+  console.log('=== DCQL DEBUG END ===');
+
   const queryResult = DcqlQuery.query(request.dcqlQuery, Array.from(dcqlCredentialsWithCredentials.keys()));
+
+  // DEBUG: Log query result
+  console.log('=== DCQL QUERY RESULT ===');
+  console.log('can_be_satisfied:', queryResult.can_be_satisfied);
+  console.log('credential_matches:', JSON.stringify(queryResult.credential_matches, null, 2));
+  console.log('=== DCQL QUERY RESULT END ===');
 
   if (!queryResult.can_be_satisfied) {
     return Promise.reject(Error('Credentials do not match required query request'));

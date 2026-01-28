@@ -56,6 +56,11 @@
             value = "--openssl-legacy-provider"
             isEnabled = "YES">
          </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "DEBUG"
+            value = "sphereon:*"
+            isEnabled = "YES">
+         </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction

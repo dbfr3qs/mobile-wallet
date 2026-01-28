@@ -4912,6 +4912,7 @@ __metadata:
     expo-file-system: "npm:~17.0.1"
     expo-fs: "npm:^0.2.2"
     expo-linear-gradient: "npm:~13.0.2"
+    expo-linking: "npm:~6.3.1"
     expo-local-authentication: "npm:~14.0.1"
     expo-localization: "npm:~15.0.3"
     expo-random: "npm:~14.0.1"
@@ -11312,6 +11313,16 @@ __metadata:
   peerDependencies:
     expo: "*"
   checksum: 10c0/1643ff61092e13efb573880defe04e28f4f91cdbf4ba1c762d6694a504dadfa4365ce786dae312f5baeacc22aa3fd048f32cd2d4471a922ac4c42b1dd3a0129b
+  languageName: node
+  linkType: hard
+
+"expo-linking@npm:~6.3.1":
+  version: 6.3.1
+  resolution: "expo-linking@npm:6.3.1"
+  dependencies:
+    expo-constants: "npm:~16.0.0"
+    invariant: "npm:^2.2.4"
+  checksum: 10c0/a6550cacc3117dde92fe9758c3b97089dae8ce2d90a2d6dd4441571991c4c7e139beb9d5648f04eef2fccc52f00f1631f36717bcd070c62413c013a30ae7aa97
   languageName: node
   linkType: hard
 
